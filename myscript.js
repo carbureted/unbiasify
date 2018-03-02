@@ -56,6 +56,8 @@ const STYLE_SHEETS = {
              .pv-recent-activity-section__card-heading,
              [data-control-name="topcard"] h2,
              .pv-top-card-section__name,
+             .search-result-profile-link, 
+             .info-container .profile-info h1.searchable,            
              span[class*="-name"]  ${STYLES.hidden}`,
 
       `[data-control-name="actor"] > h3 >  span:first-child:before,
@@ -63,6 +65,8 @@ const STYLE_SHEETS = {
              h3[class*="__name"]:before,
              a[class*="name"]:before, 
              [data-control-name="update_topbar_actor"]:before, 
+             .search-result-profile-link:before,
+             .info-container .profile-info h1.searchable:before,
              [data-control-name="topcard"] h2:before ${STYLES.linkText}`,
 
       `[class*="person-info__shared"] ${STYLES.blur}`,
@@ -83,6 +87,7 @@ const STYLE_SHEETS = {
 
       `.presence-entity__image,
              .pv-top-card-section__profile-photo-container .pv-top-card-section__image,
+             .profile-img,
              img ${STYLES.blur}`,
 
       `#aux > div.insights > h3::after,
