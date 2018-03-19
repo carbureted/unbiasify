@@ -8,6 +8,8 @@ const TOGGLE_REPLIT_PHOTOS = 'toggleReplitPhotos'
 const TOGGLE_REPLIT_NAMES = 'toggleReplitNames'
 const TOGGLE_GREENHOUSE_PHOTOS = 'toggleGreenhousePhotos'
 const TOGGLE_GREENHOUSE_NAMES = 'toggleGreenhouseNames'
+const TOGGLE_LEVER_PHOTOS = 'toggleLeverPhotos'
+const TOGGLE_LEVER_NAMES = 'toggleLeverNames'
 const TOGGLE_FACEBOOK_PHOTOS = 'toggleFacebookPhotos'
 const TOGGLE_FACEBOOK_NAMES = 'toggleFacebookNames'
 
@@ -17,6 +19,7 @@ const URLS = {
   angelList: 'angel.co',
   replit: 'repl.it',
   greenhouse: 'greenhouse.io',
+  lever: 'lever.co',
   facebook: 'facebook.com',
 }
 
@@ -24,6 +27,7 @@ const STYLES = {
   hidden: '{ visibility: hidden !important; }',
   hiddenRelative: '{ visibility: hidden !important; position: relative; }',
   linkText: '{ content: "Link to Profile"; visibility: visible; }',
+  emailText: '{ content: "Email candidate"; visibility: visible; }',
   candidateName: '{ content: "Candidate Name"; visibility: visible; }',
   blur:
     '{ opacity: 0.5; -webkit-filter: blur(50px) !important; filter: blur(50px) !important; }',
@@ -209,6 +213,17 @@ const STYLE_SHEETS = {
     nameId: 'BIAS_GREENHOUSE_NAMES',
     photoId: 'BIAS_GREENHOUSE_PHOTOS',
   },
+  lever: {
+    names: [
+      `.candidate-name-link:before, .profile-name:before ${STYLES.candidateName}`,
+      `.email-address:before ${STYLES.emailText}`,
+      `[data-qa="profile-links"]:before, .contact-info-added a:before ${STYLES.linkText}`,
+      `.candidate-name-link, .profile-name, .email-address, [data-qa="profile-links"], .contact-info-added a ${STYLES.hidden}`,
+    ],
+    photos: [],
+    nameId: 'BIAS_LEVER_NAMES',
+    photoId: 'BIAS_LEVER_PHOTOS',
+  },
   facebook: {
     names: [
       `div._52eh._5bcu > div > a._32mo > span,
@@ -266,6 +281,11 @@ var greenhouseUpdater = createModel(
   TOGGLE_GREENHOUSE_PHOTOS,
   TOGGLE_GREENHOUSE_NAMES
 )()
+var leverUpdater = createModel(
+  'lever',
+  TOGGLE_LEVER_PHOTOS,
+  TOGGLE_LEVER_NAMES
+)()
 var facebookUpdater = createModel(
   'facebook',
   TOGGLE_FACEBOOK_PHOTOS,
@@ -283,6 +303,8 @@ changeAll = (isSet = false, val = true) => {
   replitUpdater('names', isSet, val)
   greenhouseUpdater('photos', isSet, val)
   greenhouseUpdater('names', isSet, val)
+  leverUpdater('photos', isSet, val)
+  leverUpdater('names', isSet, val)
   facebookUpdater('photos', isSet, val)
   facebookUpdater('names', isSet, val)
 }
@@ -344,6 +366,8 @@ getIntitialVal(TOGGLE_REPLIT_PHOTOS, replitUpdater, 'photos')
 getIntitialVal(TOGGLE_REPLIT_NAMES, replitUpdater, 'names')
 getIntitialVal(TOGGLE_GREENHOUSE_PHOTOS, greenhouseUpdater, 'photos')
 getIntitialVal(TOGGLE_GREENHOUSE_NAMES, greenhouseUpdater, 'names')
+getIntitialVal(TOGGLE_LEVER_PHOTOS, leverUpdater, 'photos')
+getIntitialVal(TOGGLE_LEVER_NAMES, leverUpdater, 'names')
 getIntitialVal(TOGGLE_FACEBOOK_PHOTOS, facebookUpdater, 'photos')
 getIntitialVal(TOGGLE_FACEBOOK_NAMES, facebookUpdater, 'names')
 
@@ -394,6 +418,7 @@ function toggleStyles(styleId, obfuscate, toggleBoolVar, url) {
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   switch (true) {
     case request.toggleNames:
+      alert()
       linkedinUpdater('names', true)
       break
     case request.togglePhotos:
@@ -423,6 +448,11 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     case request.toggleGreenhousePhotos:
       greenhouseUpdater('photos', true)
       break
+    case request.toggleLeverNames:
+      leverUpdater('names', true)
+      break
+    case request.toggleLeverPhotos:
+      leverUpdater('photos', true)
     case request.toggleFacebookNames:
       facebookUpdater('names', true)
       break
