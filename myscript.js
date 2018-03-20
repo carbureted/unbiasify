@@ -28,6 +28,7 @@ const STYLES = {
   hiddenRelative: '{ visibility: hidden !important; position: relative; }',
   linkText: '{ content: "Link to Profile"; visibility: visible; }',
   emailText: '{ content: "Email candidate"; visibility: visible; }',
+  resumeText: '{ content: "candidateResume.doc"; visibility: visible; }',
   candidateName: '{ content: "Candidate Name"; visibility: visible; }',
   blur:
     '{ opacity: 0.5; -webkit-filter: blur(50px) !important; filter: blur(50px) !important; }',
@@ -40,6 +41,8 @@ const STYLES = {
     '{ content: ""; text-indent: 0; display: block; line-height: initial; }',
   zeroOpacity: '{ opacity:0 !important; }',
   backgroundColorToFacebookBlue: '{ background-color: #f6f7f9 !important; }',
+  overlay:
+    '{ content:"  "; display: block;  height: 120px; position: absolute; top: 100px; left: 0; width: 100%; background-color: rgba(230, 230, 230, 1); z-index: 999; }',
 }
 
 const STYLE_SHEETS = {
@@ -220,10 +223,12 @@ const STYLE_SHEETS = {
   },
   lever: {
     names: [
-      `.candidate-name-link:before, .profile-name:before ${STYLES.candidateName}`,
+      `.candidate-name-link:before, .profile-name:before, .header-profile-name:after ${STYLES.candidateName}`,
       `.email-address:before ${STYLES.emailText}`,
+      `.profile-story:nth-child(2) .story-title:before, [data-qa="resume-file"]:before ${STYLES.resumeText}`,
       `[data-qa="profile-links"]:before, .contact-info-added a:before ${STYLES.linkText}`,
-      `.candidate-name-link, .profile-name, .email-address, [data-qa="profile-links"], .contact-info-added a ${STYLES.hidden}`,
+      `.resume-thumbnail::before ${STYLES.overlay}`,
+      `.candidate-name-link, .profile-name, .email-address, .header-profile-name, [data-qa="profile-links"], [data-qa="resume-file"], .contact-info-added a, .profile-story:nth-child(2) .story-title ${STYLES.hidden}`,
     ],
     photos: [],
     nameId: 'BIAS_LEVER_NAMES',
