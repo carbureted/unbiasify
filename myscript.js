@@ -8,6 +8,10 @@ const TOGGLE_REPLIT_PHOTOS = 'toggleReplitPhotos'
 const TOGGLE_REPLIT_NAMES = 'toggleReplitNames'
 const TOGGLE_GREENHOUSE_PHOTOS = 'toggleGreenhousePhotos'
 const TOGGLE_GREENHOUSE_NAMES = 'toggleGreenhouseNames'
+const TOGGLE_LEVER_PHOTOS = 'toggleLeverPhotos'
+const TOGGLE_LEVER_NAMES = 'toggleLeverNames'
+const TOGGLE_FACEBOOK_PHOTOS = 'toggleFacebookPhotos'
+const TOGGLE_FACEBOOK_NAMES = 'toggleFacebookNames'
 
 const URLS = {
   linkedIn: 'linkedin.com',
@@ -15,12 +19,15 @@ const URLS = {
   angelList: 'angel.co',
   replit: 'repl.it',
   greenhouse: 'greenhouse.io',
+  lever: 'lever.co',
+  facebook: 'facebook.com',
 }
 
 const STYLES = {
   hidden: '{ visibility: hidden !important; }',
   hiddenRelative: '{ visibility: hidden !important; position: relative; }',
   linkText: '{ content: "Link to Profile"; visibility: visible; }',
+  emailText: '{ content: "Email candidate"; visibility: visible; }',
   candidateName: '{ content: "Candidate Name"; visibility: visible; }',
   blur:
     '{ opacity: 0.5; -webkit-filter: blur(50px) !important; filter: blur(50px) !important; }',
@@ -32,6 +39,7 @@ const STYLES = {
   emptyBlock:
     '{ content: ""; text-indent: 0; display: block; line-height: initial; }',
   zeroOpacity: '{ opacity:0 !important; }',
+  backgroundColorToFacebookBlue: '{ background-color: #f6f7f9 !important; }',
 }
 
 const STYLE_SHEETS = {
@@ -47,12 +55,12 @@ const STYLE_SHEETS = {
       `[data-control-name="actor"] > h3 >  span:first-child,
              span[class*="__name"],
              h3[class*="__name"],
-             h3[class*="-name"], 
+             h3[class*="-name"],
              a[class*="name"],
              .profile-rail-card__actor-link > p,
              .pv-entity__summary-info > p,
              [data-control-name="edit_endorsements"],
-             [data-control-name="update_topbar_actor"], 
+             [data-control-name="update_topbar_actor"],
              .pv-recent-activity-section__card-heading,
              [data-control-name="topcard"] h2,
              .pv-top-card-section__name,
@@ -108,7 +116,7 @@ const STYLE_SHEETS = {
             span.ProfileHeaderCard-urlText > a,
             .js-retweet-text b,
             div.tooltip ,
-            .js-recommended-followers .fullname, 
+            .js-recommended-followers .fullname,
             .ActivityItem .fullname ${STYLES.hidden}`,
 
       `.js-retweet-text b:before { visibility: visible; content: "User"; }`,
@@ -159,11 +167,11 @@ const STYLE_SHEETS = {
     ],
     photos: [
       `.candidate-header-content img,
-             .card-content-container img, 
-             .photo .profile-link img, 
-             .profiles-show.subheader img, 
-             .avatar-container img, 
-             .review img, 
+             .card-content-container img,
+             .photo .profile-link img,
+             .profiles-show.subheader img,
+             .avatar-container img,
+             .review img,
              .qtip-content img  ${STYLES.blur} `,
     ],
     nameId: 'BIAS_ANGELLIST_NAMES',
@@ -210,6 +218,47 @@ const STYLE_SHEETS = {
     nameId: 'BIAS_GREENHOUSE_NAMES',
     photoId: 'BIAS_GREENHOUSE_PHOTOS',
   },
+  lever: {
+    names: [
+      `.candidate-name-link:before, .profile-name:before ${STYLES.candidateName}`,
+      `.email-address:before ${STYLES.emailText}`,
+      `[data-qa="profile-links"]:before, .contact-info-added a:before ${STYLES.linkText}`,
+      `.candidate-name-link, .profile-name, .email-address, [data-qa="profile-links"], .contact-info-added a ${STYLES.hidden}`,
+    ],
+    photos: [],
+    nameId: 'BIAS_LEVER_NAMES',
+    photoId: 'BIAS_LEVER_PHOTOS',
+  },
+  facebook: {
+    names: [
+      `div._52eh._5bcu > div > a._32mo > span,
+            div._6a._5u5j._6b > h5._5pbw._5vra > span.fwn.fcg > span.fwb.fcg > a,
+            div._6a._5u5j._6b > h5._5pbw._5vra > span.fwn.fcg > span.fcg > span.fwb > a.profileLink,
+            div._6a._5u5j._6b > h6._14f5._5pbw._5vra > span.fwn.fcg > span.fcg > span.fwb > a.profileLink,
+            div._6a._5u5j._6b > h6._14f5._5pbw._5vra > span.fwn.fcg > span.fcg > a.profileLink,
+            h5._1qbu._14f5._5pbw._5vra > span.fwn.fcg > span.fcg > a.profileLink,
+            h5._1qbu._14f5._5pbw._5vra > span.fwn.fcg > span.fcg > span.fwb > a.profileLink,
+            #fb-timeline-cover-name > a._2nlw._2nlv ${STYLES.hidden}`,
+      `div._52eh._5bcu > div > a._32mo > span:before,
+            div._6a._5u5j._6b > h5._5pbw._5vra > span.fwn.fcg > span.fwb.fcg > a:before,
+            div._6a._5u5j._6b > h5._5pbw._5vra > span.fwn.fcg > span.fcg > span.fwb > a.profileLink:before,
+            div._6a._5u5j._6b > h6._14f5._5pbw._5vra > span.fwn.fcg > span.fcg > span.fwb > a.profileLink:before,
+            div._6a._5u5j._6b > h6._14f5._5pbw._5vra > span.fwn.fcg > span.fcg > a.profileLink:before,
+            h5._1qbu._14f5._5pbw._5vra > span.fwn.fcg > span.fcg > a.profileLink:before,
+            h5._1qbu._14f5._5pbw._5vra > span.fwn.fcg > span.fcg > span.fwb > a.profileLink:before,
+            #fb-timeline-cover-name > a._2nlw._2nlv:before ${STYLES.linkText}`,
+    ],
+    photos: [
+      `div.clearfix > a._2ial._uvc._8o._8s.lfloat._ohe > img._1glk.img ${STYLES.blur}`,
+      `div.clearfix > a._2ial._uvc._8o._8s.lfloat._ohe ${STYLES.backgroundColorToFacebookBlue}`,
+      `a.profilePicThumb > img.profilePic.img ${STYLES.blur}`,
+      `a.profilePicThumb ${STYLES.backgroundColorToFacebookBlue}`,
+      `a._5pb8._1yz2._8o._8s.lfloat._ohe > div._38vo > img._s0._4ooo._5xib._5sq7._44ma._rw.img ${STYLES.blur}`,
+      `a._5pb8._1yz2._8o._8s.lfloat._ohe > div._38vo:after ${STYLES.backgroundColorToFacebookBlue}`,
+    ],
+    nameId: 'BIAS_FACEBOOK_NAMES',
+    photoId: 'BIAS_FACEBOOK_PHOTOS',
+  },
 }
 
 var linkedinUpdater = createModel(
@@ -237,6 +286,16 @@ var greenhouseUpdater = createModel(
   TOGGLE_GREENHOUSE_PHOTOS,
   TOGGLE_GREENHOUSE_NAMES
 )()
+var leverUpdater = createModel(
+  'lever',
+  TOGGLE_LEVER_PHOTOS,
+  TOGGLE_LEVER_NAMES
+)()
+var facebookUpdater = createModel(
+  'facebook',
+  TOGGLE_FACEBOOK_PHOTOS,
+  TOGGLE_FACEBOOK_NAMES
+)()
 
 changeAll = (isSet = false, val = true) => {
   linkedinUpdater('photos', isSet, val)
@@ -249,6 +308,10 @@ changeAll = (isSet = false, val = true) => {
   replitUpdater('names', isSet, val)
   greenhouseUpdater('photos', isSet, val)
   greenhouseUpdater('names', isSet, val)
+  leverUpdater('photos', isSet, val)
+  leverUpdater('names', isSet, val)
+  facebookUpdater('photos', isSet, val)
+  facebookUpdater('names', isSet, val)
 }
 
 var toggleAll = (function() {
@@ -308,6 +371,10 @@ getIntitialVal(TOGGLE_REPLIT_PHOTOS, replitUpdater, 'photos')
 getIntitialVal(TOGGLE_REPLIT_NAMES, replitUpdater, 'names')
 getIntitialVal(TOGGLE_GREENHOUSE_PHOTOS, greenhouseUpdater, 'photos')
 getIntitialVal(TOGGLE_GREENHOUSE_NAMES, greenhouseUpdater, 'names')
+getIntitialVal(TOGGLE_LEVER_PHOTOS, leverUpdater, 'photos')
+getIntitialVal(TOGGLE_LEVER_NAMES, leverUpdater, 'names')
+getIntitialVal(TOGGLE_FACEBOOK_PHOTOS, facebookUpdater, 'photos')
+getIntitialVal(TOGGLE_FACEBOOK_NAMES, facebookUpdater, 'names')
 
 $(document).keydown(function(e) {
   var ctrlKey = e.ctrlKey || e.metaKey
@@ -356,6 +423,7 @@ function toggleStyles(styleId, obfuscate, toggleBoolVar, url) {
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   switch (true) {
     case request.toggleNames:
+      alert()
       linkedinUpdater('names', true)
       break
     case request.togglePhotos:
@@ -384,6 +452,17 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       break
     case request.toggleGreenhousePhotos:
       greenhouseUpdater('photos', true)
+      break
+    case request.toggleLeverNames:
+      leverUpdater('names', true)
+      break
+    case request.toggleLeverPhotos:
+      leverUpdater('photos', true)
+    case request.toggleFacebookNames:
+      facebookUpdater('names', true)
+      break
+    case request.toggleFacebookPhotos:
+      facebookUpdater('photos', true)
       break
   }
 })
