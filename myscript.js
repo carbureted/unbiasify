@@ -12,6 +12,10 @@ const TOGGLE_LEVER_PHOTOS = 'toggleLeverPhotos'
 const TOGGLE_LEVER_NAMES = 'toggleLeverNames'
 const TOGGLE_FACEBOOK_PHOTOS = 'toggleFacebookPhotos'
 const TOGGLE_FACEBOOK_NAMES = 'toggleFacebookNames'
+const TOGGLE_GITHUB_PHOTOS = 'toggleGithubPhotos'
+const TOGGLE_GITHUB_NAMES = 'toggleGithubNames'
+const TOGGLE_MEETUP_NAMES = 'toggleMeetupNames'
+const TOGGLE_MEETUP_PHOTOS = 'toggleMeetupPhotos'
 
 const URLS = {
   linkedIn: 'linkedin.com',
@@ -21,6 +25,8 @@ const URLS = {
   greenhouse: 'greenhouse.io',
   lever: 'lever.co',
   facebook: 'facebook.com',
+  github: 'github.com',
+  meetup: 'meetup.com'
 }
 
 const STYLES = {
@@ -90,6 +96,10 @@ const STYLE_SHEETS = {
       `span[class*="school"],
              span[class*="skill"],
              span[class*="degree"] ${STYLES.visible}`,
+
+        `.msg-conversation-card__participant-names ${STYLES.hidden}`,
+
+        `.feed-shared-header__text-view a ${STYLES.hidden}`
     ],
     photos: [
       `span.full-name, a[href^='https://www.linkedin.com/profile'], #sticky-rail *,
@@ -105,6 +115,10 @@ const STYLE_SHEETS = {
             [id^='control_gen_'] > div.header > h3::after ${STYLES.emptyBlock}`,
 
       `#in-common > svg > circle[fill^='url('] { fill-opacity: 0 !important; fill: black !important; }`,
+
+      `.msg-facepile-grid--no-facepile .msg-facepile-grid__img ${STYLES.blur}`,
+
+      `.msg-s-message-list--envelope-enabled .msg-s-event-listitem__profile-picture ${STYLES.blur}`
     ],
     nameId: 'BIAS_NAMES_LINKEDIN',
     photoId: 'BIAS_LINKEDIN',
@@ -264,6 +278,39 @@ const STYLE_SHEETS = {
     nameId: 'BIAS_FACEBOOK_NAMES',
     photoId: 'BIAS_FACEBOOK_PHOTOS',
   },
+  github: {
+      names: [
+        `.discussion-item .author,
+        .gh-header-meta .author,
+        .timeline-comment-header .author,
+        .contrib-person h3 a,
+        .header-nav-current-user strong.css-truncate-target,
+        .vcard-names-container .vcard-names ${STYLES.hidden}`
+      ],
+      photos: [
+        `.timeline-comment-avatar,
+        .avatar,
+        .link-gray-dark.no-underline.text-bold.wb-break-all ${STYLES.blur}`
+      ],
+      nameId: 'BIAS_GITHUB_NAMES',
+      photoId: 'BIAS_GITHUB_PHOTOS',
+  },
+  meetup: {
+    names: [
+      `.exploreHome-eventCard .eventCard-content .text--small:first-child.text--secondary span:first-child,
+      .event-info-hosts-text a:first-child span span:last-child,
+      .groupMember .groupMember-link p.groupMember-name,
+      .memberinfo-widget-root#meta-leaders a.memberinfo-widget:first-child ${STYLES.hidden}`
+    ],
+    photos: [
+      `.avatar, .avatar--person,
+       #meta-org-photo img,
+       ul#memberList li.memberInfo div.unit div.unit a,
+       .discussion-card .chunk .flex .flex-item .discussion-card--name ${STYLES.blur}`
+    ],
+    nameId: 'BIAS_MEETUP_NAMES',
+    photoId: 'BIAS_MEETUP_PHOTOS',
+  }
 }
 
 var linkedinUpdater = createModel(
@@ -301,6 +348,16 @@ var facebookUpdater = createModel(
   TOGGLE_FACEBOOK_PHOTOS,
   TOGGLE_FACEBOOK_NAMES
 )()
+var githubUpdater = createModel(
+  'github',
+  TOGGLE_GITHUB_PHOTOS,
+  TOGGLE_GITHUB_NAMES
+)()
+var meetupUpdater = createModel(
+  'meetup',
+  TOGGLE_MEETUP_PHOTOS,
+  TOGGLE_MEETUP_NAMES
+)()
 
 changeAll = (isSet = false, val = true) => {
   linkedinUpdater('photos', isSet, val)
@@ -317,6 +374,10 @@ changeAll = (isSet = false, val = true) => {
   leverUpdater('names', isSet, val)
   facebookUpdater('photos', isSet, val)
   facebookUpdater('names', isSet, val)
+  githubUpdater('photos', isSet, val)
+  githubUpdater('names', isSet, val)
+  meetupUpdater('photos', isSet, val)
+  meetupUpdater('names', isSet, val)
 }
 
 var toggleAll = (function() {
@@ -380,6 +441,10 @@ getIntitialVal(TOGGLE_LEVER_PHOTOS, leverUpdater, 'photos')
 getIntitialVal(TOGGLE_LEVER_NAMES, leverUpdater, 'names')
 getIntitialVal(TOGGLE_FACEBOOK_PHOTOS, facebookUpdater, 'photos')
 getIntitialVal(TOGGLE_FACEBOOK_NAMES, facebookUpdater, 'names')
+getIntitialVal(TOGGLE_GITHUB_PHOTOS, githubUpdater, 'photos')
+getIntitialVal(TOGGLE_GITHUB_NAMES, githubUpdater, 'names')
+getIntitialVal(TOGGLE_MEETUP_PHOTOS, meetupUpdater, 'photos')
+getIntitialVal(TOGGLE_MEETUP_NAMES, meetupUpdater, 'names')
 
 $(document).keydown(function(e) {
   var ctrlKey = e.ctrlKey || e.metaKey
@@ -428,7 +493,6 @@ function toggleStyles(styleId, obfuscate, toggleBoolVar, url) {
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   switch (true) {
     case request.toggleNames:
-      alert()
       linkedinUpdater('names', true)
       break
     case request.togglePhotos:
@@ -468,6 +532,18 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       break
     case request.toggleFacebookPhotos:
       facebookUpdater('photos', true)
+      break
+    case request.toggleGithubPhotos:
+      githubUpdater('photos', true)
+      break
+    case request.toggleGithubNames:
+      githubUpdater('names', true)
+      break
+    case request.toggleMeetupNames:
+      meetupUpdater('names', true)
+      break
+    case request.toggleMeetupPhotos:
+      meetupUpdater('photos', true)
       break
   }
 })
