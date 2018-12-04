@@ -1,52 +1,89 @@
 <!doctype html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="styles.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="index.js"></script>
 </head>
 
 <body>
-  <div>
-    <!-- <div class="buttons">
+    <div>
+        <!-- <div class="buttons">
         <button id="clear-photos"> Toggle LinkedIn Photos </button>
         <button id="clear-names"> Toggle LinkedIn Names </button>
         <button id="clear-al-photos"> Toggle AngelList Photos </button>
         <button id="clear-al-names"> Toggle Angelist Names </button>
     </div> -->
 
-    <input id="clear-photos" type="checkbox" class="toggle-input" name="toggle">
-    <label for="clear-photos"> LinkedIn Photos</label>
+        <input id="clear-photos" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-photos"> LinkedIn Photos</label>
 
-    <input id="clear-names" type="checkbox" class="toggle-input" name="toggle">
-    <label for="clear-names"> LinkedIn Names</label>
+        <input id="clear-names" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-names"> LinkedIn Names</label>
 
-    <input id="clear-al-photos" type="checkbox" class="toggle-input" name="toggle">
-    <label for="clear-al-photos"> AngelList Photos</label>
+        <input id="clear-al-photos" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-al-photos"> AngelList Photos</label>
 
-    <input id="clear-al-names" type="checkbox" class="toggle-input" name="toggle">
-    <label for="clear-al-names"> AngelList Names</label>
+        <input id="clear-al-names" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-al-names"> AngelList Names</label>
 
-    <input id="clear-twitter-photos" type="checkbox" class="toggle-input" name="toggle">
-    <label for="clear-twitter-photos"> Twitter Photos</label>
+        <input id="clear-twitter-photos" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-twitter-photos"> Twitter Photos</label>
 
-    <input id="clear-twitter-names" type="checkbox" class="toggle-input" name="toggle">
-    <label for="clear-twitter-names"> Twitter Names</label>
+        <input id="clear-twitter-names" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-twitter-names"> Twitter Names</label>
 
-    <input id="clear-replit-photos" type="checkbox" class="toggle-input" name="toggle">
-    <label for="clear-replit-photos"> Repl.it Photos</label>
+        <input id="clear-replit-photos" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-replit-photos"> Repl.it Photos</label>
 
-    <input id="clear-replit-names" type="checkbox" class="toggle-input" name="toggle">
-    <label for="clear-replit-names"> Repl.it Names</label>
+        <input id="clear-replit-names" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-replit-names"> Repl.it Names</label>
 
+        <input id="clear-greenhouse-photos" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-greenhouse-photos"> Greenhouse Photos</label>
 
+        <input id="clear-greenhouse-names" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-greenhouse-names"> Greenhouse Names</label>
 
-    <div align="center">
+        <input id="clear-lever-names" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-lever-names"> Lever Names</label>
 
-      <h1>Unbiasify</h1>
-      <a href="https://github.com/Unbiasify/unbiasify/">
-        <img src="icon.png" align="center" height="50" width="50">
-      </a>
+        <input id="clear-facebook-photos" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-facebook-photos"> Facebook Photos</label>
+
+        <input id="clear-facebook-names" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-facebook-names"> Facebook Names</label>
+
+        <input id="clear-github-photos" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-github-photos"> Github Photos</label>
+
+        <input id="clear-github-names" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-github-names"> Github Names</label>
+
+        <input id="clear-meetup-photos" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-meetup-photos"> Meetup Photos</label>
+
+        <input id="clear-meetup-names" type="checkbox" class="toggle-input" name="toggle">
+        <label for="clear-meetup-names"> Meetup Names</label>
+
+        <div align="center">
+
+            <div>
+                <h1>Other Actions</h1>
+                <select name="additionalOptions" id="additional-options">
+                    <option value="feedback">Provide Feedback</option>
+                    <option value="additionalResource">Additional Resource</option>
+                    <option value="tweetUs">Tweet us!</option>
+                </select>
+                <button id="actionButton">
+                    Go
+                </button>
+            </div>
+
+            <h1>Unbiasify</h1>
+            <a href="https://github.com/Unbiasify/unbiasify/">
+                <img src="icon.png" align="center" height="50" width="50">
+            </a>
+        </div>
     </div>
-  </div>
 </body>

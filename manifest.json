@@ -2,7 +2,7 @@
   "name": "Unbiasify",
   "description":
     "Unbiasify hides names and profile photos on social networks so you can focus on what actually matters when recruiting.",
-  "version": "1.7.16",
+  "version": "1.7.23",
 
   "background": {
     "persistent": false,
@@ -25,7 +25,12 @@
         "https://www.linkedin.com/*",
         "https://angel.co/*",
         "https://twitter.com/*",
-        "https://repl.it/*"
+        "https://repl.it/*",
+        "https://*.greenhouse.io/*",
+        "https://hire.lever.co/*",
+        "https://www.facebook.com/*",
+        "https://*.github.com/*",
+        "https://www.meetup.com/*"
       ],
       "js": ["jquery.min.js", "myscript.js"]
     }
