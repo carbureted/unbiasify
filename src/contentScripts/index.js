@@ -1,0 +1,1 @@
+import { messageListener } from './myscript'
