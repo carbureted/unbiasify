@@ -1,7 +1,7 @@
 import { createModel, getInitialVal } from '../../utils'
 
-const TOGGLE_GREENHOUSE_PHOTOS = 'toggleGreenhousePhotos'
-const TOGGLE_GREENHOUSE_NAMES = 'toggleGreenhouseNames'
+export const TOGGLE_GREENHOUSE_PHOTOS = 'toggleGreenhousePhotos'
+export const TOGGLE_GREENHOUSE_NAMES = 'toggleGreenhouseNames'
 
 export const greenhouseUpdater = createModel(
   'greenhouse',

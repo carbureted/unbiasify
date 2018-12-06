@@ -1,7 +1,7 @@
 import { createModel, getInitialVal } from '../../utils'
 
-const TOGGLE_LINKED_IN_PHOTOS = 'togglePhotos'
-const TOGGLE_LINKED_IN_NAMES = 'toggleNames'
+export const TOGGLE_LINKED_IN_PHOTOS = 'togglePhotos'
+export const TOGGLE_LINKED_IN_NAMES = 'toggleNames'
 
 export const linkedinUpdater = createModel(
   'linkedin',

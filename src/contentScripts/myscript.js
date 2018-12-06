@@ -1,14 +1,17 @@
 import $ from 'jquery'
 
-import { angellistUpdater } from './networks/angellist'
+import { angellistUpdater, TOGGLE_ANGELLIST_NAMES } from './networks/angellist'
 import { facebookUpdater } from './networks/facebook'
 import { githubUpdater } from './networks/github'
 import { greenhouseUpdater } from './networks/greenhouse'
 import { meetupUpdater } from './networks/meetup'
 import { leverUpdater } from './networks/lever'
-import { linkedinUpdater } from './networks/linkedin'
-import { replitUpdater } from './networks/replit'
-import { twitterUpdater } from './networks/twitter'
+import { linkedinUpdater, TOGGLE_LINKED_IN_NAMES } from './networks/linkedin'
+import { replitUpdater, TOGGLE_REPLIT_NAMES } from './networks/replit'
+import { twitterUpdater, TOGGLE_TWITTER_NAMES } from './networks/twitter'
+
+import { clearTabTitle } from './utils/clear-tab-title'
+import { URLS } from './utils/urls'
 
 export const changeAll = (isSet = false, val = true) => {
   linkedinUpdater('photos', isSet, val)
@@ -60,6 +63,28 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
     }
   }
 })
+
+// Callback function to execute when mutations are observed
+const mutationCallback = function(mutationsList) {
+  for (const mutation of mutationsList) {
+    if (mutation.type == 'childList' && document.title.length) {
+      clearTabTitle(TOGGLE_REPLIT_NAMES, URLS['replit'])
+      clearTabTitle(TOGGLE_ANGELLIST_NAMES, URLS['anglelList'])
+      clearTabTitle(TOGGLE_TWITTER_NAMES, URLS['twitter'])
+      clearTabTitle(TOGGLE_LINKED_IN_NAMES, URLS['linkedIn'])
+    }
+  }
+}
+
+const targetNode = $('title')[0]
+
+// Options for the observer (which mutations to observe)
+const config = { attributes: true, childList: true }
+
+// Create an observer instance linked to the callback function
+const observer = new MutationObserver(mutationCallback)
+// Start observing the target node for configured mutations
+observer.observe(targetNode, config)
 
 export const messageListener = chrome.runtime.onMessage.addListener(function(
   request

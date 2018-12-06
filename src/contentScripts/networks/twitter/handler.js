@@ -1,7 +1,7 @@
 import { createModel, getInitialVal } from '../../utils'
 
-const TOGGLE_TWITTER_PHOTOS = 'toggleTwitterPhotos'
-const TOGGLE_TWITTER_NAMES = 'toggleTwitterNames'
+export const TOGGLE_TWITTER_PHOTOS = 'toggleTwitterPhotos'
+export const TOGGLE_TWITTER_NAMES = 'toggleTwitterNames'
 
 export const twitterUpdater = createModel(
   'twitter',

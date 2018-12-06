@@ -1,7 +1,7 @@
 import { createModel, getInitialVal } from '../../utils'
 
-const TOGGLE_LEVER_PHOTOS = 'toggleLeverPhotos'
-const TOGGLE_LEVER_NAMES = 'toggleLeverNames'
+export const TOGGLE_LEVER_PHOTOS = 'toggleLeverPhotos'
+export const TOGGLE_LEVER_NAMES = 'toggleLeverNames'
 
 export const leverUpdater = createModel(
   'lever',

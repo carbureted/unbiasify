@@ -1,7 +1,7 @@
 import { createModel, getInitialVal } from '../../utils'
 
-const TOGGLE_GITHUB_PHOTOS = 'toggleGithubPhotos'
-const TOGGLE_GITHUB_NAMES = 'toggleGithubNames'
+export const TOGGLE_GITHUB_PHOTOS = 'toggleGithubPhotos'
+export const TOGGLE_GITHUB_NAMES = 'toggleGithubNames'
 
 export const githubUpdater = createModel(
   'github',
