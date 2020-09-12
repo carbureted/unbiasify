@@ -7,6 +7,8 @@ export const STYLES = {
   candidateName: '{ content: "Candidate Name"; visibility: visible; }',
   blur:
     '{ opacity: 0.5; -webkit-filter: blur(50px) !important; filter: blur(50px) !important; }',
+  smallBlur:
+    '{ opacity: 0.5; -webkit-filter: blur(20px) !important; filter: blur(20px) !important; }',
   colorToBlack:
     '{ color: black !important; background-color: black !important; }',
   visible: '{ visibility: visible !important; }',

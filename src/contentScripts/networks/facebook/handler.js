@@ -1,4 +1,5 @@
 import { createModel, getInitialVal } from '../../utils'
+import { URLS } from '../../utils/urls'
 
 export const TOGGLE_FACEBOOK_PHOTOS = 'toggleFacebookPhotos'
 export const TOGGLE_FACEBOOK_NAMES = 'toggleFacebookNames'

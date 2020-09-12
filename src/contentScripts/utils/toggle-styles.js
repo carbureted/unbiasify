@@ -2,6 +2,7 @@ export const toggleStyles = (styleId, obfuscate, toggleBoolVar, url) => {
   if (window.location.href.indexOf(url) == -1) {
     return
   }
+
   var prevStyle = document.getElementById(styleId)
   if (!toggleBoolVar && prevStyle) {
     prevStyle.parentNode.removeChild(prevStyle)

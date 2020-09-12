@@ -9,29 +9,35 @@ export const stylesheet = {
                  .pv-contact-info__card-sub-heading,
                  .entity-hovercard ${STYLES.zeroOpacity}`,
 
+    //  .feed-shared-actor__name > span, -- poster's name in feed
+    //  .comments-post-meta__name > span -- commenter's name in feed
     `[data-control-name="actor"] > h3 >  span:first-child,
-                 span[class*="__name"],
                  h3[class*="__name"],
                  h3[class*="-name"],
                  a[class*="name"],
-                 .profile-rail-card__actor-link > p,
+                 .feed-shared-actor__name > span,
                  .pv-entity__summary-info > p,
                  [data-control-name="edit_endorsements"],
                  [data-control-name="update_topbar_actor"],
                  .pv-recent-activity-section__card-heading,
                  [data-control-name="topcard"] h2,
                  .pv-top-card-section__name,
+                 ul.pv-top-card--list > li, 
                  .search-result-profile-link, 
-                 .info-container .profile-info h1.searchable,            
+                 .info-container .profile-info h1.searchable,  
+                 .comments-post-meta__name > span,          
                  span[class*="-name"]  ${STYLES.hidden}`,
 
     `[data-control-name="actor"] > h3 >  span:first-child:before,
-                 span[class*="-name"]:before,
                  h3[class*="__name"]:before,
+                 h3[class*="-name"]:before,
                  a[class*="name"]:before, 
                  [data-control-name="update_topbar_actor"]:before, 
                  .search-result-profile-link:before,
                  .info-container .profile-info h1.searchable:before,
+                 .profile-rail-card__actor-link > span:before,
+                 .feed-shared-actor__name > span:before,
+                 .comments-post-meta__name > span:before,
                  [data-control-name="topcard"] h2:before ${STYLES.linkText}`,
 
     `[class*="person-info__shared"] ${STYLES.blur}`,
@@ -57,14 +63,16 @@ export const stylesheet = {
     `.presence-entity__image,
                  .pv-top-card-section__profile-photo-container .pv-top-card-section__image,
                  .profile-img,
-                 img ${STYLES.blur}`,
+                 .profile-photo-edit__preview,
+                 .pv-browsemap-section__member-image,
+                 img ${STYLES.smallBlur}`,
 
     `#aux > div.insights > h3::after,
                 [id^='control_gen_'] > div.header > h3::after ${STYLES.emptyBlock}`,
 
     `#in-common > svg > circle[fill^='url('] { fill-opacity: 0 !important; fill: black !important; }`,
 
-    `.msg-facepile-grid--no-facepile .msg-facepile-grid__img ${STYLES.blur}`,
+    `.msg-facepile-grid--no-facepile .msg-facepile-grid__img ${STYLES.smallBlur}`,
 
     `.msg-s-message-list--envelope-enabled .msg-s-event-listitem__profile-picture ${STYLES.blur}`,
   ],
