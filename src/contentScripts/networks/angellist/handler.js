@@ -1,10 +1,11 @@
 import { createModel, getInitialVal } from '../../utils'
+import { URLS } from '../../utils/urls'
 
 export const TOGGLE_ANGELLIST_PHOTOS = 'toggleAlPhotos'
 export const TOGGLE_ANGELLIST_NAMES = 'toggleAlNames'
 
 export const angellistUpdater = createModel(
-  'angellist',
+  'angelList',
   TOGGLE_ANGELLIST_PHOTOS,
   TOGGLE_ANGELLIST_NAMES
 )()

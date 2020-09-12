@@ -4,7 +4,7 @@ export const TOGGLE_LINKED_IN_PHOTOS = 'togglePhotos'
 export const TOGGLE_LINKED_IN_NAMES = 'toggleNames'
 
 export const linkedinUpdater = createModel(
-  'linkedin',
+  'linkedIn',
   TOGGLE_LINKED_IN_PHOTOS,
   TOGGLE_LINKED_IN_NAMES
 )()

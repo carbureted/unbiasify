@@ -2,7 +2,8 @@ import { STYLES } from '../../utils/styles'
 
 export const stylesheet = {
   names: [
-    `strong.fullname.show-popup-with-id,
+    `strong.fullname.show-popup-with-id,    
+    div[role="button"] div div div div div div div span span,
             span.username.u-dir,
             .ProfileNameTruncated-link,
             .ProfileHeaderCard-nameLink,
@@ -16,6 +17,7 @@ export const stylesheet = {
     `.js-retweet-text b:before { visibility: visible; content: "User"; }`,
 
     `.ActivityItem .fullname:before,
+        div[role="button"] div div div div div div div span span:before,
             .js-recommended-followers .fullname:before,
             .ProfileHeaderCard-nameLink:before,
             .ProfileNameTruncated-link:before,

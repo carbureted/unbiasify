@@ -22,9 +22,9 @@ Next; all you have to do is go to linked in and click that icon. Depending on wh
 
 # Supported Sites
 
-* Linkedin -- free version only
+* Linkedin
 * Angellist
-* Twitter
+* Twitter ** this is currently not working quite as intended
 * Facebook
 
 # Local Installation Steps
@@ -56,7 +56,20 @@ Assuming everything has gone well, you should now have Unbiasify listed in your 
 
 
 # Contribution guidelines
-On the way
+Clone the repository
+run npm install
+
+run npm run dev
+
+go to `chrome://extensions`
+load unpacked
+find the unbiasify folder you cloned
+turn the local version of the extension on, turn the distributed version off
+
+Upon making changes
+* refresh the extension
+* Refresh the page it's running on
+
 
 # Special thanks
 Everyone at Unbiasify would like to extend a special thanks to the following companies for their contributions and support.

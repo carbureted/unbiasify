@@ -10,6 +10,7 @@ export const createModel = (
   return function() {
     let toggle = {}
     let url = URLS[styleIdentifier]
+
     toggle['photos'] = [
       false,
       photoIdentifier,

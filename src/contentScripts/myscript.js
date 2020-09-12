@@ -67,7 +67,7 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
 // Callback function to execute when mutations are observed
 const mutationCallback = function(mutationsList) {
   for (const mutation of mutationsList) {
-    if (mutation.type == 'childList' && document.title.length) {
+    if (mutation.type == 'childList' && document.title !== 'Unbiasified') {
       clearTabTitle(TOGGLE_REPLIT_NAMES, URLS['replit'])
       clearTabTitle(TOGGLE_ANGELLIST_NAMES, URLS['anglelList'])
       clearTabTitle(TOGGLE_TWITTER_NAMES, URLS['twitter'])
@@ -84,6 +84,7 @@ const config = { attributes: true, childList: true }
 // Create an observer instance linked to the callback function
 const observer = new MutationObserver(mutationCallback)
 // Start observing the target node for configured mutations
+// TODO -- figure out how to handle this so that it doesn't constantly fire
 observer.observe(targetNode, config)
 
 export const messageListener = chrome.runtime.onMessage.addListener(function(
