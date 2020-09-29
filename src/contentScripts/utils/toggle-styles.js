@@ -10,7 +10,7 @@ export const toggleStyles = (styleId, obfuscate, toggleBoolVar, url) => {
     const style = document.createElement('style')
     style.id = styleId
 
-    document.body.appendChild(style)
+    document.documentElement.appendChild(style)
 
     obfuscate.forEach((r, i) => style.sheet.insertRule(r, i))
   }
