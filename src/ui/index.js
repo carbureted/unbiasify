@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
         break
 
       case 'additionalResource':
-        var url = 'https://www.unbiasify.com'
+        var url = 'https://www.thepeoplepeoplegroup.com/unbiasify'
         handleTabCreation(url)
         break
 
