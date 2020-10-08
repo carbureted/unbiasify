@@ -1,5 +1,7 @@
 git checkout master
 npm version patch -m "%s - - [skip ci]"
+
+npm i
 npm run build
 
 PACKAGE_VERSION=$(cat package.json \
