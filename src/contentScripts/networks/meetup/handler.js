@@ -1,13 +1,7 @@
 import { createModel, getInitialVal } from '../../utils'
 
-export const TOGGLE_MEETUP_NAMES = 'toggleMeetupNames'
-export const TOGGLE_MEETUP_PHOTOS = 'toggleMeetupPhotos'
+const name = 'meetup'
 
-export const meetupUpdater = createModel(
-  'meetup',
-  TOGGLE_MEETUP_NAMES,
-  TOGGLE_MEETUP_PHOTOS
-)()
+export const meetupUpdater = createModel(name)()
 
-getInitialVal(TOGGLE_MEETUP_NAMES, meetupUpdater, 'photos')
-getInitialVal(TOGGLE_MEETUP_PHOTOS, meetupUpdater, 'names')
+getInitialVal(name, meetupUpdater)

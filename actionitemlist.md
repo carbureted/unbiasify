@@ -6,14 +6,6 @@ LINKEDIN IMPROVEMENTS
 -https://www.linkedin.com/messaging is buggy, some names show, others don't
 
 
-SITES TO ADD TO UNBIASIFY
--Angelist
--Facebook
--Twitter
--Github
--Meetup.com
-
-
 
 NICE TO HAVES
 -Master toggle switch turn all names and/or all photos off

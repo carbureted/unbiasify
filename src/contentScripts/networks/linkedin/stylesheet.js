@@ -76,8 +76,7 @@ export const stylesheet = {
 
     `.msg-s-message-list--envelope-enabled .msg-s-event-listitem__profile-picture ${STYLES.blur}`,
   ],
-  nameId: 'BIAS_NAMES_LINKEDIN',
-  photoId: 'BIAS_LINKEDIN',
+  styleSheetID: 'BIAS_LINKEDIN',
 }
 
 export default stylesheet

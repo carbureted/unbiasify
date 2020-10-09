@@ -14,8 +14,7 @@ export const stylesheet = {
         .avatar,
         .link-gray-dark.no-underline.text-bold.wb-break-all ${STYLES.blur}`,
   ],
-  nameId: 'BIAS_GITHUB_NAMES',
-  photoId: 'BIAS_GITHUB_PHOTOS',
+  styleSheetID: 'BIAS_GITHUB',
 }
 
 export default stylesheet

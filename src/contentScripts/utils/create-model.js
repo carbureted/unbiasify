@@ -2,44 +2,23 @@ import { URLS } from './urls'
 import { STYLE_SHEETS } from './stylesheets'
 import { toggleStyles } from './toggle-styles'
 
-export const createModel = (
-  styleIdentifier,
-  photoIdentifier,
-  nameIdentifier
-) => {
+export const createModel = name => {
   return function() {
-    let toggle = {}
-    let url = URLS[styleIdentifier]
+    let url = URLS[name]
+    let active = false
 
-    toggle['photos'] = [
-      false,
-      photoIdentifier,
-      STYLE_SHEETS[styleIdentifier].photoId,
-      STYLE_SHEETS[styleIdentifier].photos,
-    ]
-    toggle['names'] = [
-      false,
-      nameIdentifier,
-      STYLE_SHEETS[styleIdentifier].nameId,
-      STYLE_SHEETS[styleIdentifier].names,
-    ]
-
-    return function(type, isSet = false, val) {
-      if (!toggle || !toggle[type] || !toggle[type].length) {
-        return
-      }
-      if (val != undefined) {
-        toggle[type][0] = val
+    return function(isActive) {
+      if (isActive != undefined) {
+        active = isActive
       } else {
-        toggle[type][0] = !toggle[type][0]
+        active = !active
       }
-      const id = toggle[type][2]
-      const styles = toggle[type][3]
-      const nextVal = toggle[type][0]
-      toggleStyles(id, styles, nextVal, url)
-      if (isSet) {
-        chrome.storage.sync.set({ [toggle[type][1]]: nextVal })
-      }
+
+      const styles = [...STYLE_SHEETS[name].names, ...STYLE_SHEETS[name].photos]
+
+      toggleStyles(STYLE_SHEETS[name].styleSheetID, styles, active, url)
+
+      chrome.storage.sync.set({ [name]: active })
     }
   }
 }

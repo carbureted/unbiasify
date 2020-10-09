@@ -20,12 +20,14 @@ Next; all you have to do is go to linked in and click that icon. Depending on wh
 <img src="assets/unbiasify.gif" height="400">
 
 
-# Supported Sites
+# Supported Apps
 
+* Lever
 * Linkedin
+* Greenhouse
 * Angellist
-* Twitter ** this is currently not working quite as intended
-* Facebook
+* Meetup
+* Replit
 
 # Local Installation Steps
 
