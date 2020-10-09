@@ -11279,8 +11279,7 @@ var _styles = require("../../utils/styles");
 var stylesheet = {
   names: [".person-name:before, .person-info-column .name:before ".concat(_styles.STYLES.candidateName), ".person-name, .name ".concat(_styles.STYLES.hidden)],
   photos: [".person-photo ".concat(_styles.STYLES.blur)],
-  nameId: 'BIAS_GREENHOUSE_NAMES',
-  photoId: 'BIAS_GREENHOUSE_PHOTOS'
+  styleSheetID: 'BIAS_GREENHOUSE'
 };
 exports.stylesheet = stylesheet;
 var _default = stylesheet;
@@ -11371,9 +11370,8 @@ var _styles = require("../../utils/styles");
 
 var stylesheet = {
   names: ["div[style*=\"flex: 1 1 0%; margin-left: 55px; text-align: left; line-height: 76px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;\"],\n                 div[style*=\"font-family:Raleway;font-size:20px;color:#b3b3b3;margin:.25em;\"],\n                 div[style*=\"font-size:28px;font-family:Raleway;font-weight:400;color:#3F403F;margin:40px 0;\"] ".concat(_styles.STYLES.hidden), "h3[style*=\"font-weight: 400; font-size: 19px; height: 25px; display: flex; align-items: center; justify-content: center; margin-top: 10px; color: rgb(120, 121, 123); min-width: 150px; max-width: 230px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;\"],\n                 div[style*=\"box-sizing: border-box; height: 42px; line-height: 42px; width: 98%; border-bottom: 1px solid rgb(240, 240, 240); color: rgb(128, 127, 127);\"],\n                 a[style*=\"border-bottom: none; text-decoration: none; color: rgb(65, 131, 196);\"],\n                 a[style*=\"border-bottom: none; text-decoration: underline; color: rgb(65, 131, 196);\"],\n                 h1[style*=\"font-family:Raleway;font-weight:100;font-size:44px;color:#404040;\"] ".concat(_styles.STYLES.hiddenRelative), 'div[style*="flex: 1 1 0%; margin-left: 55px; text-align: left; line-height: 76px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"]:before { content: "Student"; visibility: visible; }', 'h3[style*="font-weight: 400; font-size: 19px; height: 25px; display: flex; align-items: center; justify-content: center; margin-top: 10px; color: rgb(120, 121, 123); min-width: 150px; max-width: 230px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"]:before { content: "Student"; visibility: visible; position: absolute; top: 0; bottom: 0; left: 0; right: 0; display: flex; justify-content: center; align-items: center; }', 'div[style*="box-sizing: border-box; height: 42px; line-height: 42px; width: 98%; border-bottom: 1px solid rgb(240, 240, 240); color: rgb(128, 127, 127);"]:before { content: "Student"; visibility: visible; border-bottom: 1px solid rgb(240, 240, 240); position: absolute; top: 0; bottom: 0; left: 0; right: 0; display: flex; align-items: center; }', 'h1[style*="font-family:Raleway;font-weight:100;font-size:44px;color:#404040;"]:before { content: "Repl.it User"; visibility: visible; position: absolute; top: 0; bottom: 0; left: 0; right: 0; display: flex; justify-content: center; align-items: center; }', 'div[style*="font-size:28px;font-family:Raleway;font-weight:400;color:#3F403F;margin:40px 0;"]:before { content: "Public Repls"; visibility: visible; }', "a[style*=\"border-bottom: none; text-decoration: none; color: rgb(65, 131, 196);\"]:before,\n                 a[style*=\"border-bottom: none; text-decoration: underline; color: rgb(65, 131, 196);\"]:before { visibility: visible; content: \"@repl_user\"; position: absolute; }"],
-  photos: ["div[style*=\"height:0px;margin:1em;\"] > div:not([class]),\n                 a[href^=\"/@\"] > div:not([class]) { background-image: none !important; background-color: #4A4A4A !important; }"],
-  nameId: 'BIAS_REPLIT_NAMES',
-  photoId: 'BIAS_REPLIT_PHOTOS'
+  photos: [".profile-icon ".concat(_styles.STYLES.smallBlur)],
+  styleSheetID: 'BIAS_REPLIT'
 };
 exports.stylesheet = stylesheet;
 var _default = stylesheet;
@@ -11657,18 +11655,14 @@ Object.keys(_stylesheet).forEach(function (key) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.greenhouseUpdater = exports.TOGGLE_GREENHOUSE_NAMES = exports.TOGGLE_GREENHOUSE_PHOTOS = void 0;
+exports.greenhouseUpdater = void 0;
 
 var _utils = require("../../utils");
 
-var TOGGLE_GREENHOUSE_PHOTOS = 'toggleGreenhousePhotos';
-exports.TOGGLE_GREENHOUSE_PHOTOS = TOGGLE_GREENHOUSE_PHOTOS;
-var TOGGLE_GREENHOUSE_NAMES = 'toggleGreenhouseNames';
-exports.TOGGLE_GREENHOUSE_NAMES = TOGGLE_GREENHOUSE_NAMES;
-var greenhouseUpdater = (0, _utils.createModel)('greenhouse', TOGGLE_GREENHOUSE_PHOTOS, TOGGLE_GREENHOUSE_NAMES)();
+var name = 'greenhouse';
+var greenhouseUpdater = (0, _utils.createModel)(name)();
 exports.greenhouseUpdater = greenhouseUpdater;
-(0, _utils.getInitialVal)(TOGGLE_GREENHOUSE_PHOTOS, greenhouseUpdater, 'photos');
-(0, _utils.getInitialVal)(TOGGLE_GREENHOUSE_NAMES, greenhouseUpdater, 'names');
+(0, _utils.getInitialVal)(name, greenhouseUpdater);
 },{"../../utils":"contentScripts/utils/index.js"}],"contentScripts/networks/greenhouse/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -11837,18 +11831,14 @@ Object.keys(_stylesheet).forEach(function (key) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.replitUpdater = exports.TOGGLE_REPLIT_NAMES = exports.TOGGLE_REPLIT_PHOTOS = void 0;
+exports.replitUpdater = void 0;
 
 var _utils = require("../../utils");
 
-var TOGGLE_REPLIT_PHOTOS = 'toggleReplitPhotos';
-exports.TOGGLE_REPLIT_PHOTOS = TOGGLE_REPLIT_PHOTOS;
-var TOGGLE_REPLIT_NAMES = 'toggleReplitNames';
-exports.TOGGLE_REPLIT_NAMES = TOGGLE_REPLIT_NAMES;
-var replitUpdater = (0, _utils.createModel)('replit', TOGGLE_REPLIT_PHOTOS, TOGGLE_REPLIT_NAMES)();
+var name = 'replit';
+var replitUpdater = (0, _utils.createModel)(name)();
 exports.replitUpdater = replitUpdater;
-(0, _utils.getInitialVal)(TOGGLE_REPLIT_PHOTOS, replitUpdater, 'photos');
-(0, _utils.getInitialVal)(TOGGLE_REPLIT_NAMES, replitUpdater, 'names');
+(0, _utils.getInitialVal)(name, replitUpdater);
 },{"../../utils":"contentScripts/utils/index.js"}],"contentScripts/networks/replit/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -12086,7 +12076,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49828" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62722" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

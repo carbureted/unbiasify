@@ -11,17 +11,17 @@ document.addEventListener('DOMContentLoaded', function() {
   var $toggleMeetup = $('#toggle-meetup')
 
   const LINKEDIN = 'linkedin'
-  const TOGGLE_ANGELLIST = 'toggleAngelList'
-  const TOGGLE_REPLIT = 'toggleReplit'
-  const TOGGLE_GREENHOUSE = 'toggleGreenhouse'
+  const ANGELLIST = 'angelList'
+  const REPLIT = 'replit'
+  const GREENHOUSE = 'greenhouse'
   const LEVER = 'lever'
   const GITHUB = 'github'
   const MEETUP = 'meetup'
 
   setInitialValues(LINKEDIN, $toggleLinkedIn)
-  setInitialValues(TOGGLE_ANGELLIST, $toggleAngelList)
-  setInitialValues(TOGGLE_REPLIT, $toggleReplit)
-  setInitialValues(TOGGLE_GREENHOUSE, $toggleGreenhouse)
+  setInitialValues(ANGELLIST, $toggleAngelList)
+  setInitialValues(REPLIT, $toggleReplit)
+  setInitialValues(GREENHOUSE, $toggleGreenhouse)
   setInitialValues(LEVER, $toggleLever)
   setInitialValues(GITHUB, $toggleGithub)
   setInitialValues(MEETUP, $toggleMeetup)
