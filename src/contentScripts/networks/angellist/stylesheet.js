@@ -31,8 +31,7 @@ export const stylesheet = {
                  .review img,
                  .qtip-content img  ${STYLES.blur} `,
   ],
-  nameId: 'BIAS_ANGELLIST_NAMES',
-  photoId: 'BIAS_ANGELLIST_PHOTOS',
+  styleSheetID: 'BIAS_ANGELLIST',
 }
 
 export default stylesheet
