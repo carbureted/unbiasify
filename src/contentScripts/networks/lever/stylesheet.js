@@ -17,8 +17,7 @@ export const stylesheet = {
     `.candidate-name-link, .profile-name, .email-address, .header-profile-name, [data-qa="profile-links"], [data-qa="resume-file"], .contact-info-added a, .profile-story:nth-child(2) .story-title ${STYLES.hidden}`,
   ],
   photos: [],
-  nameId: 'BIAS_LEVER_NAMES',
-  photoId: 'BIAS_LEVER_PHOTOS',
+  styleSheetID: 'BIAS_LEVER',
 }
 
 export default stylesheet

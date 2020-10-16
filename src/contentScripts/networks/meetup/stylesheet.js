@@ -13,8 +13,7 @@ export const stylesheet = {
         ul#memberList li.memberInfo div.unit div.unit a,
         .discussion-card .chunk .flex .flex-item .discussion-card--name ${STYLES.blur}`,
   ],
-  nameId: 'BIAS_MEETUP_NAMES',
-  photoId: 'BIAS_MEETUP_PHOTOS',
+  styleSheetID: 'BIAS_MEETUP',
 }
 
 export default stylesheet

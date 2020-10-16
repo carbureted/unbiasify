@@ -25,12 +25,8 @@ export const stylesheet = {
     `a[style*="border-bottom: none; text-decoration: none; color: rgb(65, 131, 196);"]:before,
                  a[style*="border-bottom: none; text-decoration: underline; color: rgb(65, 131, 196);"]:before { visibility: visible; content: "@repl_user"; position: absolute; }`,
   ],
-  photos: [
-    `div[style*="height:0px;margin:1em;"] > div:not([class]),
-                 a[href^="/@"] > div:not([class]) { background-image: none !important; background-color: #4A4A4A !important; }`,
-  ],
-  nameId: 'BIAS_REPLIT_NAMES',
-  photoId: 'BIAS_REPLIT_PHOTOS',
+  photos: [`.profile-icon ${STYLES.smallBlur}`],
+  styleSheetID: 'BIAS_REPLIT',
 }
 
 export default stylesheet

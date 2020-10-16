@@ -1,13 +1,7 @@
 import { createModel, getInitialVal } from '../../utils'
 
-export const TOGGLE_REPLIT_PHOTOS = 'toggleReplitPhotos'
-export const TOGGLE_REPLIT_NAMES = 'toggleReplitNames'
+const name = 'replit'
 
-export const replitUpdater = createModel(
-  'replit',
-  TOGGLE_REPLIT_PHOTOS,
-  TOGGLE_REPLIT_NAMES
-)()
+export const replitUpdater = createModel(name)()
 
-getInitialVal(TOGGLE_REPLIT_PHOTOS, replitUpdater, 'photos')
-getInitialVal(TOGGLE_REPLIT_NAMES, replitUpdater, 'names')
+getInitialVal(name, replitUpdater)

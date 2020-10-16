@@ -6,8 +6,7 @@ export const stylesheet = {
     `.person-name, .name ${STYLES.hidden}`,
   ],
   photos: [`.person-photo ${STYLES.blur}`],
-  nameId: 'BIAS_GREENHOUSE_NAMES',
-  photoId: 'BIAS_GREENHOUSE_PHOTOS',
+  styleSheetID: 'BIAS_GREENHOUSE',
 }
 
 export default stylesheet
