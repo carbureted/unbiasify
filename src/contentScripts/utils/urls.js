@@ -3,7 +3,7 @@ export const URLS = {
   angelList: 'angel.co',
   replit: 'repl.it',
   greenhouse: 'greenhouse.io',
-  lever: 'hire.lever.co',
+  lever: 'lever.co',
   github: 'github.com',
   meetup: 'meetup.com',
 }

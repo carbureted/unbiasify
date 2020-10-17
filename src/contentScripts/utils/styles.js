@@ -21,5 +21,7 @@ export const STYLES = {
   overlay:
     '{ content:"  "; display: block;  height: 120px; position: absolute; top: 120px; left: 0; width: 100%; background-color: rgba(230, 230, 230, 1); z-index: 999; }',
   leverResumeOverlay:
-    '{ content:"  "; display: block;  height: 150px; position: absolute; top:0; left: 0; width: 100%; background-color: rgba(230, 230, 230, 1); z-index: 999; }',
+    '{ content:"  "; display: block;  height: 150px; position: absolute; top:0; left: 0; width: 100%; background-color: rgba(230, 230, 230, 1); z-index: 1; }',
+  relative: '{ position: relative; }',
+  raise: '{ z-index: 2; }',
 }
