@@ -5,6 +5,7 @@ export const STYLES = {
   emailText: '{ content: "Email candidate"; visibility: visible; }',
   resumeText: '{ content: "candidateResume.doc"; visibility: visible; }',
   candidateName: '{ content: "Candidate Name"; visibility: visible; }',
+  contactText: '{ content: "Candidate Contact Info"; visibility: visible; }',
   blur:
     '{ opacity: 0.5; -webkit-filter: blur(50px) !important; filter: blur(50px) !important; }',
   smallBlur:
