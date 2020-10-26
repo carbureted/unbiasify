@@ -5,6 +5,7 @@ export const STYLES = {
   emailText: '{ content: "Email candidate"; visibility: visible; }',
   resumeText: '{ content: "candidateResume.doc"; visibility: visible; }',
   candidateName: '{ content: "Candidate Name"; visibility: visible; }',
+  contactText: '{ content: "Candidate Info"; visibility: visible; }',
   blur:
     '{ opacity: 0.5; -webkit-filter: blur(50px) !important; filter: blur(50px) !important; }',
   smallBlur:
@@ -21,5 +22,7 @@ export const STYLES = {
   overlay:
     '{ content:"  "; display: block;  height: 120px; position: absolute; top: 120px; left: 0; width: 100%; background-color: rgba(230, 230, 230, 1); z-index: 999; }',
   leverResumeOverlay:
-    '{ content:"  "; display: block;  height: 150px; position: absolute; top:0; left: 0; width: 100%; background-color: rgba(230, 230, 230, 1); z-index: 999; }',
+    '{ content:"  "; display: block;  height: 150px; position: absolute; top:0; left: 0; width: 100%; background-color: rgba(230, 230, 230, 1); z-index: 1; }',
+  relative: '{ position: relative; }',
+  raise: '{ z-index: 2; }',
 }

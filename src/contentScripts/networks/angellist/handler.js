@@ -1,7 +1,6 @@
 import { createModel, getInitialVal } from '../../utils'
-import { URLS } from '../../utils/urls'
 
-const name = 'angellist'
+const name = 'angelList'
 
 export const angellistUpdater = createModel(name)()
 
