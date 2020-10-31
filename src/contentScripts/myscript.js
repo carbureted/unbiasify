@@ -11,7 +11,7 @@ import { replitUpdater, TOGGLE_REPLIT_NAMES } from './networks/replit'
 import { clearTabTitle } from './utils/clear-tab-title'
 import { URLS } from './utils/urls'
 
-export const changeAll = (isSet = false, val = true) => {
+export const changeAll = (val = true) => {
   linkedinUpdater(val)
   angellistUpdater(val)
   replitUpdater(val)
@@ -22,7 +22,7 @@ export const changeAll = (isSet = false, val = true) => {
 }
 
 export const toggleAll = (function() {
-  const toggleAll = false
+  let toggleAll = false
   return () => {
     toggleAll = !toggleAll
     chrome.storage.sync.set({ toggleAll: toggleAll })
@@ -46,7 +46,7 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
     const storageChange = changes[key]
     if (key === 'toggleAll') {
       const isTrue = storageChange.newValue
-      changeAll(true, isTrue)
+      changeAll(isTrue)
     }
   }
 })
