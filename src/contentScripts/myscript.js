@@ -25,11 +25,9 @@ export const toggleAll = (function() {
   let toggleAll = false
   return () => {
     toggleAll = !toggleAll
-    chrome.storage.sync.set({ toggleAll: toggleAll })
+    chrome.storage.sync.set({ all: toggleAll, toggleAll })
   }
 })()
-
-changeAll()
 
 $(document).on('keydown', function(e) {
   const ctrlKey = e.ctrlKey || e.metaKey

@@ -128,3 +128,12 @@ button {
 h2.title {
   margin-top: 16px;
 }
+
+h3.toggle-all__title{
+  margin-bottom: 0;
+    margin-top: 20px;
+}
+
+.toggle-all__tip {
+  color: gray;
+}
